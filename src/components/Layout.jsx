@@ -6,7 +6,7 @@ import {
   LayoutDashboard, Home, Activity, Lightbulb, MessageSquare, Settings,
   TrendingUp, ClipboardList, Package, Wrench, Building2, AlertTriangle,
   FileText, Shield, ChevronLeft, ChevronRight, Bell, Search, LogOut,
-  Bike, Users
+  Bike, Users, BrainCircuit
 } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
@@ -45,6 +45,12 @@ const navSections = [
       { icon: TrendingUp, label: "Finances", path: "/FinancialAnalysis" },
       { icon: Lightbulb, label: "Insights", path: "/BusinessInsights" },
       { icon: MessageSquare, label: "Chat IA", path: "/ChatOdoo" },
+    ]
+  },
+  {
+    label: "Coaching",
+    items: [
+      { icon: BrainCircuit, label: "Coach d'affaires", path: "/CoachAffaires" },
     ]
   },
   {

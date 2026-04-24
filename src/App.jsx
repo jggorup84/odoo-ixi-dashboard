@@ -22,6 +22,7 @@ import OperationsRentals from './pages/OperationsRentals';
 import ConfigurationSystem from './pages/ConfigurationSystem';
 import ChatOdoo from './pages/ChatOdoo';
 import AdminAccess from './pages/AdminAccess';
+import CoachAffaires from './pages/CoachAffaires';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -61,6 +62,7 @@ const AuthenticatedApp = () => {
         <Route path="/ConfigurationSystem" element={<ConfigurationSystem />} />
         <Route path="/ChatOdoo" element={<ChatOdoo />} />
         <Route path="/AdminAccess" element={<AdminAccess />} />
+        <Route path="/CoachAffaires" element={<CoachAffaires />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>
