@@ -1,0 +1,97 @@
+{
+  "name": "Expense",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "description": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "salaire",
+        "loyer",
+        "utilities",
+        "fournitures",
+        "transport",
+        "marketing",
+        "maintenance",
+        "assurance",
+        "impots",
+        "emprunt",
+        "travaux",
+        "acquisition",
+        "frais_bancaires",
+        "autre"
+      ]
+    },
+    "amount": {
+      "type": "number"
+    },
+    "currency": {
+      "type": "string",
+      "enum": [
+        "EUR",
+        "CAD"
+      ],
+      "default": "EUR"
+    },
+    "invoice_number": {
+      "type": "string"
+    },
+    "supplier": {
+      "type": "string"
+    },
+    "primary_entity": {
+      "type": "string",
+      "enum": [
+        "KOALAS France SARL",
+        "9419 Inc (Holding)",
+        "V\u00e9los Dordogne",
+        "Atelier Cyclo",
+        "SCI Dordogne"
+      ]
+    },
+    "payment_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "paid",
+        "partial"
+      ],
+      "default": "pending"
+    },
+    "payment_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "receipt_url": {
+      "type": "string"
+    },
+    "is_recurring": {
+      "type": "boolean",
+      "default": false
+    },
+    "frequency": {
+      "type": "string",
+      "enum": [
+        "weekly",
+        "monthly",
+        "quarterly",
+        "annual"
+      ]
+    }
+  },
+  "required": [
+    "date",
+    "description",
+    "amount",
+    "primary_entity"
+  ]
+}

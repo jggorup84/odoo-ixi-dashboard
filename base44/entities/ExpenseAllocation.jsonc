@@ -1,0 +1,45 @@
+{
+  "name": "ExpenseAllocation",
+  "type": "object",
+  "properties": {
+    "expense_id": {
+      "type": "string"
+    },
+    "allocated_entity": {
+      "type": "string",
+      "enum": [
+        "KOALAS France SARL",
+        "9419 Inc (Holding)",
+        "V\u00e9los Dordogne",
+        "Atelier Cyclo",
+        "SCI Dordogne"
+      ]
+    },
+    "allocation_amount": {
+      "type": "number"
+    },
+    "allocation_percentage": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "allocation_reason": {
+      "type": "string"
+    },
+    "allocation_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "cost_center": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "expense_id",
+    "allocated_entity",
+    "allocation_amount"
+  ]
+}

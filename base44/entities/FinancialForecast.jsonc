@@ -1,0 +1,82 @@
+{
+  "name": "FinancialForecast",
+  "type": "object",
+  "properties": {
+    "entity": {
+      "type": "string",
+      "enum": [
+        "KOALAS France SARL",
+        "9419 Inc (Holding)",
+        "V\u00e9los Dordogne",
+        "Atelier Cyclo",
+        "SCI Dordogne",
+        "Consolid\u00e9"
+      ]
+    },
+    "forecast_year": {
+      "type": "integer",
+      "minimum": 2026,
+      "maximum": 2030
+    },
+    "month": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 12
+    },
+    "revenue": {
+      "type": "number",
+      "default": 0
+    },
+    "operating_expenses": {
+      "type": "number",
+      "default": 0
+    },
+    "salaries": {
+      "type": "number",
+      "default": 0
+    },
+    "rent": {
+      "type": "number",
+      "default": 0
+    },
+    "utilities": {
+      "type": "number",
+      "default": 0
+    },
+    "maintenance": {
+      "type": "number",
+      "default": 0
+    },
+    "debt_service": {
+      "type": "number",
+      "default": 0
+    },
+    "taxes": {
+      "type": "number",
+      "default": 0
+    },
+    "capital_expenditure": {
+      "type": "number",
+      "default": 0
+    },
+    "notes": {
+      "type": "string"
+    },
+    "is_locked": {
+      "type": "boolean",
+      "default": false
+    },
+    "validated_by": {
+      "type": "string"
+    },
+    "validation_date": {
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "required": [
+    "entity",
+    "forecast_year",
+    "month"
+  ]
+}
