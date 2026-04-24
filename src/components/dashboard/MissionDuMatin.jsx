@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { base44 } from "@/api/base44Client";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { AlertCircle, Clock, DollarSign, Users, CheckCircle2, Eye, Zap } from "lucide-react";
+import { AlertCircle, DollarSign, Users, CheckCircle2, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import CompanyBranchSelector from "./CompanyBranchSelector";
 import GabVoiceMode from "./GabVoiceMode";
@@ -17,7 +17,7 @@ export default function MissionDuMatin() {
 
   const { data: tasks = [] } = useQuery({
     queryKey: ["tasks", activeCompany, activeBranch],
-    queryFn: () => base44.entities.Task.list("-total_score", 100),
+    queryFn: () => base44.entities.Task.list("-total_score"),
   });
 
   const { data: branches = [] } = useQuery({
@@ -42,13 +42,18 @@ export default function MissionDuMatin() {
   }, [filteredTasks]);
 
   const blockedTasks = filteredTasks.filter(t => t.status === "Bloqué");
-  const urgentTasks = filteredTasks.filter(t => t.urgence_score >= 4);
-  const gabTasks = filteredTasks.filter(t => t.assigned_to === "Gab");
   const jennTasks = filteredTasks.filter(t => t.assigned_to === "Jenn" || t.status === "En attente Jenn");
-
   const totalRevenue = filteredTasks.reduce((sum, t) => sum + (t.expected_revenue || 0), 0);
 
-  const activeBranchData = branches.find(b => b.name === activeBranch);
+  // Optimized project grouping
+  const projectMap = useMemo(() => {
+    const map = new Map();
+    filteredTasks.forEach(task => {
+      if (!map.has(task.project)) map.set(task.project, []);
+      map.get(task.project).push(task);
+    });
+    return map;
+  }, [filteredTasks]);
 
   return (
     <div className="space-y-4">
@@ -122,7 +127,7 @@ export default function MissionDuMatin() {
               className="bg-card border border-border rounded-lg p-3"
             >
               <p className="text-xs text-muted-foreground">Blocages</p>
-              <p className={`text-3xl font-bold ${blockedTasks.length > 0 ? "text-red-600" : "text-green-600"}`}>
+              <p className={`text-3xl font-bold ${blockedTasks.length > 0 ? "text-destructive" : "text-success"}`}>
                 {blockedTasks.length}
               </p>
             </motion.div>
@@ -224,33 +229,23 @@ export default function MissionDuMatin() {
       <div className="space-y-3">
         <h3 className="font-bold text-lg">Projets de {activeBranch}</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          {filteredTasks
-            .reduce((projects, task) => {
-              const existing = projects.find(p => p.name === task.project);
-              if (existing) {
-                existing.tasks.push(task);
-              } else {
-                projects.push({ name: task.project, tasks: [task] });
-              }
-              return projects;
-            }, [])
-            .map((project) => (
-              <ProjectCard
-                key={project.name}
-                project={{
-                  name: project.name,
-                  entity: activeCompany,
-                  status: project.tasks[0]?.status || "En cours",
-                  priority: project.tasks[0]?.priority || "P2",
-                  assigned_to: project.tasks[0]?.assigned_to || "TBD",
-                  next_action: project.tasks[0]?.next_action,
-                }}
-                tasksCount={project.tasks.length}
-                blockedCount={project.tasks.filter(t => t.status === "Bloqué").length}
-                totalRevenue={project.tasks.reduce((sum, t) => sum + (t.expected_revenue || 0), 0)}
-                needsValidation={project.tasks.some(t => t.status === "En attente Jenn")}
-              />
-            ))}
+          {Array.from(projectMap).map(([projectName, projectTasks]) => (
+            <ProjectCard
+              key={projectName}
+              project={{
+                name: projectName,
+                entity: activeCompany,
+                status: projectTasks[0]?.status || "En cours",
+                priority: projectTasks[0]?.priority || "P2",
+                assigned_to: projectTasks[0]?.assigned_to || "TBD",
+                next_action: projectTasks[0]?.next_action,
+              }}
+              tasksCount={projectTasks.length}
+              blockedCount={projectTasks.filter(t => t.status === "Bloqué").length}
+              totalRevenue={projectTasks.reduce((sum, t) => sum + (t.expected_revenue || 0), 0)}
+              needsValidation={projectTasks.some(t => t.status === "En attente Jenn")}
+            />
+          ))}
         </div>
       </div>
     </div>
