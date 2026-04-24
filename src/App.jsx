@@ -25,6 +25,7 @@ import AdminAccess from './pages/AdminAccess';
 import CoachAffaires from './pages/CoachAffaires';
 import CrisisCommand from './pages/CrisisCommand';
 import Accounting from './pages/Accounting';
+import MorningDashboard from './pages/MorningDashboard';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -67,6 +68,7 @@ const AuthenticatedApp = () => {
         <Route path="/CoachAffaires" element={<CoachAffaires />} />
         <Route path="/CrisisCommand" element={<CrisisCommand />} />
         <Route path="/Accounting" element={<Accounting />} />
+        <Route path="/Morning" element={<MorningDashboard />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>

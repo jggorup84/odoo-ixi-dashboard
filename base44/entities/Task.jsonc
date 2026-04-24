@@ -1,0 +1,149 @@
+{
+  "name": "Task",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "project": {
+      "type": "string",
+      "enum": [
+        "Que Faire en Dordogne",
+        "Dordogne en v\u00e9lo",
+        "Atelier Cyclo",
+        "Pimp mon bike",
+        "Noyer & Co",
+        "Gorup Signature",
+        "Group Wine Wall Cellars",
+        "2KAI Project",
+        "G\u00eete et cabane",
+        "Distribution Koalas",
+        "Infrastructure",
+        "Autre"
+      ]
+    },
+    "entity": {
+      "type": "string",
+      "enum": [
+        "9419-0238 Quebec Inc",
+        "Distribution Koalas",
+        "Atelier Cyclo Koalas",
+        "2Kbike.fr",
+        "Pimp mon bike",
+        "Noyer & Co",
+        "Gorup Signature",
+        "Group Wine Wall Cellars",
+        "2KAI Project Investissement",
+        "SARL Les Entreprises Koalas France",
+        "SASU Exp\u00e9rience Koalas",
+        "Que Faire en Dordogne",
+        "Dordogne en v\u00e9lo",
+        "G\u00eete et cabane"
+      ]
+    },
+    "assigned_to": {
+      "type": "string",
+      "enum": [
+        "Gab",
+        "Jenn",
+        "Prestataire",
+        "Client",
+        "Auto"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Id\u00e9e",
+        "\u00c0 structurer",
+        "\u00c0 valider",
+        "En cours",
+        "Bloqu\u00e9",
+        "En attente Gab",
+        "En attente Jenn",
+        "En attente prestataire",
+        "\u00c0 facturer",
+        "\u00c0 livrer",
+        "Termin\u00e9",
+        "Archiv\u00e9"
+      ]
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "P0",
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ]
+    },
+    "urgence_score": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "impact_money_score": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "impact_client_score": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "risk_score": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "blocage_score": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "total_score": {
+      "type": "integer"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "expected_revenue": {
+      "type": "number"
+    },
+    "expected_cost": {
+      "type": "number"
+    },
+    "legal_risk": {
+      "type": "string"
+    },
+    "next_action": {
+      "type": "string"
+    },
+    "blockers": {
+      "type": "string"
+    },
+    "client_name": {
+      "type": "string"
+    },
+    "is_morning_priority": {
+      "type": "boolean",
+      "default": false
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "project",
+    "entity",
+    "assigned_to",
+    "status"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "name": "Branch",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "parent_entity": {
+      "type": "string"
+    },
+    "branch_type": {
+      "type": "string",
+      "enum": [
+        "Holding",
+        "Distribution",
+        "Exploitation",
+        "Projet"
+      ]
+    },
+    "address": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "siret": {
+      "type": "string"
+    },
+    "manager": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive",
+        "planning"
+      ]
+    },
+    "objectives": {
+      "type": "string"
+    },
+    "key_metrics": {
+      "type": "object"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "parent_entity",
+    "status"
+  ]
+}

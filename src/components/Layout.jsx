@@ -6,7 +6,7 @@ import {
   LayoutDashboard, Home, Activity, Lightbulb, MessageSquare, Settings,
   TrendingUp, ClipboardList, Package, Wrench, Building2, AlertTriangle,
   FileText, Shield, ChevronLeft, ChevronRight, Bell, Search, LogOut,
-  Bike, Users, BrainCircuit, Siren, BookOpen
+  Bike, Users, BrainCircuit, Siren, BookOpen, Zap
 } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
@@ -17,6 +17,7 @@ const navSections = [
   {
     label: "Vue générale",
     items: [
+      { icon: Zap, label: "🎯 Cockpit matin", path: "/Morning" },
       { icon: LayoutDashboard, label: "Dashboard", path: "/" },
       { icon: Activity, label: "Activité", path: "/ActivityLogs" },
       { icon: AlertTriangle, label: "Opérations", path: "/OperationsRentals" },
