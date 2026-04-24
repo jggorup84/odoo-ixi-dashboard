@@ -9,8 +9,12 @@ export default function NotificationBell() {
   const [notifications, setNotifications] = useState([]);
 
   const load = async () => {
-    const data = await base44.entities.Notification.filter({ is_read: false }, "-created_date", 10);
-    setNotifications(data);
+    try {
+      const data = await base44.entities.Notification.filter({ is_read: false }, "-created_date", 10);
+      setNotifications(data);
+    } catch {
+      // Erreur réseau temporaire — on ignore silencieusement
+    }
   };
 
   useEffect(() => {
@@ -20,8 +24,12 @@ export default function NotificationBell() {
   }, []);
 
   const markRead = async (id) => {
-    await base44.entities.Notification.update(id, { is_read: true, read_at: new Date().toISOString() });
-    load();
+    try {
+      await base44.entities.Notification.update(id, { is_read: true, read_at: new Date().toISOString() });
+      load();
+    } catch {
+      // Erreur réseau temporaire — on ignore silencieusement
+    }
   };
 
   const typeColor = { info: "text-primary", success: "text-emerald-500", warning: "text-amber-500", error: "text-destructive" };
