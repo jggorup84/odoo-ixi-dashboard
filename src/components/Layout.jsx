@@ -6,7 +6,7 @@ import {
   LayoutDashboard, Home, Activity, Lightbulb, MessageSquare, Settings,
   TrendingUp, ClipboardList, Package, Wrench, Building2, AlertTriangle,
   FileText, Shield, ChevronLeft, ChevronRight, Bell, Search, LogOut,
-  Bike, Users, BrainCircuit
+  Bike, Users, BrainCircuit, Siren
 } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
@@ -51,6 +51,7 @@ const navSections = [
     label: "Coaching",
     items: [
       { icon: BrainCircuit, label: "Coach d'affaires", path: "/CoachAffaires" },
+      { icon: Siren, label: "Commandement Crise", path: "/CrisisCommand" },
     ]
   },
   {

@@ -1,0 +1,80 @@
+{
+  "name": "Project",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "immobilier",
+        "renovation",
+        "site_web",
+        "plan_affaires",
+        "financement",
+        "operations",
+        "autre"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "non_d\u00e9marr\u00e9",
+        "en_cours",
+        "bloqu\u00e9",
+        "termin\u00e9",
+        "annul\u00e9"
+      ],
+      "default": "non_d\u00e9marr\u00e9"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "critique",
+        "haute",
+        "moyenne",
+        "basse"
+      ],
+      "default": "haute"
+    },
+    "deadline": {
+      "type": "string",
+      "format": "date"
+    },
+    "assigned_to": {
+      "type": "string"
+    },
+    "entity_linked": {
+      "type": "string"
+    },
+    "budget_needed": {
+      "type": "number"
+    },
+    "budget_available": {
+      "type": "number"
+    },
+    "completion_percent": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100,
+      "default": 0
+    },
+    "description": {
+      "type": "string"
+    },
+    "blockers": {
+      "type": "string"
+    },
+    "next_action": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "deadline"
+  ]
+}
