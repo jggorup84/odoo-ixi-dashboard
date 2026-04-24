@@ -1,0 +1,106 @@
+{
+  "name": "OdooMapping",
+  "type": "object",
+  "properties": {
+    "mapping_name": {
+      "type": "string"
+    },
+    "odoo_entity_type": {
+      "type": "string",
+      "enum": [
+        "lead",
+        "opportunity",
+        "sale_order",
+        "invoice",
+        "res_partner",
+        "project_task"
+      ]
+    },
+    "base44_entity_type": {
+      "type": "string",
+      "enum": [
+        "Task",
+        "Project",
+        "FinancingPlan",
+        "Expense",
+        "ExpenseAllocation"
+      ]
+    },
+    "odoo_instance_url": {
+      "type": "string"
+    },
+    "odoo_database": {
+      "type": "string"
+    },
+    "mapping_direction": {
+      "type": "string",
+      "enum": [
+        "base44_to_odoo",
+        "odoo_to_base44",
+        "bidirectional"
+      ]
+    },
+    "field_mappings": {
+      "type": "object"
+    },
+    "trigger_condition": {
+      "type": "string"
+    },
+    "auto_sync_enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "sync_frequency": {
+      "type": "string",
+      "enum": [
+        "real_time",
+        "hourly",
+        "daily"
+      ]
+    },
+    "last_sync_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "last_sync_status": {
+      "type": "string",
+      "enum": [
+        "success",
+        "failed",
+        "pending",
+        "warning"
+      ]
+    },
+    "sync_error_message": {
+      "type": "string"
+    },
+    "retry_count": {
+      "type": "integer",
+      "default": 0
+    },
+    "max_retries": {
+      "type": "integer",
+      "default": 3
+    },
+    "next_retry_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "mapping_name",
+    "odoo_entity_type",
+    "base44_entity_type",
+    "mapping_direction"
+  ]
+}

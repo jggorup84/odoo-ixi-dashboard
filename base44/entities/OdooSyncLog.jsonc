@@ -1,0 +1,90 @@
+{
+  "name": "OdooSyncLog",
+  "type": "object",
+  "properties": {
+    "mapping_id": {
+      "type": "string"
+    },
+    "mapping_name": {
+      "type": "string"
+    },
+    "sync_type": {
+      "type": "string",
+      "enum": [
+        "manual",
+        "auto",
+        "webhook"
+      ]
+    },
+    "direction": {
+      "type": "string",
+      "enum": [
+        "base44_to_odoo",
+        "odoo_to_base44"
+      ]
+    },
+    "base44_record_id": {
+      "type": "string"
+    },
+    "base44_record_type": {
+      "type": "string"
+    },
+    "odoo_record_id": {
+      "type": "integer"
+    },
+    "odoo_record_type": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "success",
+        "failed",
+        "partial",
+        "pending",
+        "skipped"
+      ]
+    },
+    "data_synced": {
+      "type": "object"
+    },
+    "error_message": {
+      "type": "string"
+    },
+    "error_code": {
+      "type": "string"
+    },
+    "sync_duration_ms": {
+      "type": "integer"
+    },
+    "fields_updated": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "webhook_payload": {
+      "type": "object"
+    },
+    "next_retry_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "retry_count": {
+      "type": "integer",
+      "default": 0
+    },
+    "synced_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "mapping_id",
+    "sync_type",
+    "status"
+  ]
+}

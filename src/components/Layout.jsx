@@ -47,6 +47,7 @@ const navSections = [
       { icon: TrendingUp, label: "Finances", path: "/FinancialAnalysis" },
       { icon: Lightbulb, label: "Insights", path: "/BusinessInsights" },
       { icon: MessageSquare, label: "Chat IA", path: "/ChatOdoo" },
+      { icon: Zap, label: "🔗 Odoo Sync", path: "/OdooSync" },
     ]
   },
   {
