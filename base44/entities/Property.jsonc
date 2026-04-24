@@ -1,0 +1,87 @@
+{
+  "name": "Property",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "property_type": {
+      "type": "string",
+      "enum": [
+        "appartement",
+        "maison",
+        "villa",
+        "chalet",
+        "studio",
+        "loft"
+      ]
+    },
+    "bedrooms": {
+      "type": "integer"
+    },
+    "bathrooms": {
+      "type": "integer"
+    },
+    "max_guests": {
+      "type": "integer"
+    },
+    "amenities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "nightly_rate": {
+      "type": "number"
+    },
+    "cleaning_fee": {
+      "type": "number"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "maintenance",
+        "inactive",
+        "planning"
+      ],
+      "default": "active"
+    },
+    "airbnb_url": {
+      "type": "string"
+    },
+    "booking_url": {
+      "type": "string"
+    },
+    "avg_rating": {
+      "type": "number"
+    },
+    "total_reviews": {
+      "type": "integer"
+    },
+    "occupancy_rate": {
+      "type": "number"
+    },
+    "monthly_revenue": {
+      "type": "number"
+    },
+    "experience_features": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "photos": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

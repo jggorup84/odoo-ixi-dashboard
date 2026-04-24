@@ -1,0 +1,19 @@
+{
+  "name": "SystemConfig",
+  "type": "object",
+  "properties": {
+    "config_key": {
+      "type": "string"
+    },
+    "config_value": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "config_key",
+    "config_value"
+  ]
+}

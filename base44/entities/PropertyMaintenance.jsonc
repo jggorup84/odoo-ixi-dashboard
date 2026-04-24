@@ -1,0 +1,118 @@
+{
+  "name": "PropertyMaintenance",
+  "type": "object",
+  "properties": {
+    "property_id": {
+      "type": "string"
+    },
+    "property_name": {
+      "type": "string"
+    },
+    "maintenance_type": {
+      "type": "string",
+      "enum": [
+        "pr\u00e9ventive",
+        "corrective",
+        "urgente",
+        "planifi\u00e9e",
+        "am\u00e9lioration"
+      ]
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "plomberie",
+        "\u00e9lectricit\u00e9",
+        "chauffage",
+        "climatisation",
+        "\u00e9quipement",
+        "piscine",
+        "jardin",
+        "peinture",
+        "mobilier",
+        "autre"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "basse",
+        "moyenne",
+        "haute",
+        "critique"
+      ],
+      "default": "moyenne"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "planifi\u00e9e",
+        "en_cours",
+        "termin\u00e9e",
+        "annul\u00e9e",
+        "en_attente"
+      ],
+      "default": "planifi\u00e9e"
+    },
+    "scheduled_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "completed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "estimated_cost": {
+      "type": "number"
+    },
+    "actual_cost": {
+      "type": "number"
+    },
+    "estimated_duration": {
+      "type": "number"
+    },
+    "actual_duration": {
+      "type": "number"
+    },
+    "assigned_to": {
+      "type": "string"
+    },
+    "impacts_guest_experience": {
+      "type": "boolean",
+      "default": false
+    },
+    "blocks_property": {
+      "type": "boolean",
+      "default": false
+    },
+    "affected_bookings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notification_sent": {
+      "type": "boolean",
+      "default": false
+    },
+    "photos": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "property_name",
+    "title"
+  ]
+}

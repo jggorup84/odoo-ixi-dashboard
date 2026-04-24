@@ -1,0 +1,46 @@
+{
+  "name": "TechnicianAccess",
+  "type": "object",
+  "properties": {
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "ip_address": {
+      "type": "string"
+    },
+    "access_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "password_used": {
+      "type": "string"
+    },
+    "user_agent": {
+      "type": "string"
+    },
+    "access_granted": {
+      "type": "boolean",
+      "default": false
+    },
+    "is_trusted_ip": {
+      "type": "boolean",
+      "default": false
+    },
+    "retry_delay_until": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "email"
+  ]
+}

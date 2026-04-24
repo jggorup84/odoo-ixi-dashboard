@@ -1,0 +1,78 @@
+{
+  "name": "Inventory",
+  "type": "object",
+  "properties": {
+    "item_name": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "linge",
+        "produits_m\u00e9nage",
+        "toilette",
+        "cuisine",
+        "accueil",
+        "salle_de_bain",
+        "entretien",
+        "consommables"
+      ]
+    },
+    "property_id": {
+      "type": "string"
+    },
+    "property_name": {
+      "type": "string"
+    },
+    "current_quantity": {
+      "type": "number"
+    },
+    "minimum_quantity": {
+      "type": "number"
+    },
+    "optimal_quantity": {
+      "type": "number"
+    },
+    "unit": {
+      "type": "string"
+    },
+    "unit_cost": {
+      "type": "number"
+    },
+    "total_value": {
+      "type": "number"
+    },
+    "supplier": {
+      "type": "string"
+    },
+    "reorder_needed": {
+      "type": "boolean",
+      "default": false
+    },
+    "last_restock_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "next_restock_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "consumption_rate": {
+      "type": "number"
+    },
+    "for_guest_amenities": {
+      "type": "boolean",
+      "default": false
+    },
+    "for_cleaning": {
+      "type": "boolean",
+      "default": false
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "item_name"
+  ]
+}

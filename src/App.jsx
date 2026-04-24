@@ -6,8 +6,22 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 
-import DashboardLayout from './components/layout/DashboardLayout';
+import Layout from './components/Layout';
 import Dashboard from './pages/Dashboard';
+import Properties from './pages/Properties';
+import AirbnbRentals from './pages/AirbnbRentals';
+import BicycleRentals from './pages/BicycleRentals';
+import BicycleSales from './pages/BicycleSales';
+import Maintenance from './pages/Maintenance';
+import InventoryPage from './pages/InventoryPage';
+import GuestExperiences from './pages/GuestExperiences';
+import ActivityLogs from './pages/ActivityLogs';
+import BusinessInsights from './pages/BusinessInsights';
+import FinancialAnalysis from './pages/FinancialAnalysis';
+import OperationsRentals from './pages/OperationsRentals';
+import ConfigurationSystem from './pages/ConfigurationSystem';
+import ChatOdoo from './pages/ChatOdoo';
+import AdminAccess from './pages/AdminAccess';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -16,28 +30,37 @@ const AuthenticatedApp = () => {
     return (
       <div className="fixed inset-0 flex items-center justify-center bg-background">
         <div className="flex flex-col items-center gap-4">
-          <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-sm">IXI</span>
-          </div>
+          <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center text-2xl">🐨</div>
           <div className="w-8 h-8 border-4 border-muted border-t-primary rounded-full animate-spin"></div>
+          <p className="text-sm text-muted-foreground">Chargement KOALAS ERP...</p>
         </div>
       </div>
     );
   }
 
   if (authError) {
-    if (authError.type === 'user_not_registered') {
-      return <UserNotRegisteredError />;
-    } else if (authError.type === 'auth_required') {
-      navigateToLogin();
-      return null;
-    }
+    if (authError.type === 'user_not_registered') return <UserNotRegisteredError />;
+    else if (authError.type === 'auth_required') { navigateToLogin(); return null; }
   }
 
   return (
     <Routes>
-      <Route element={<DashboardLayout />}>
+      <Route element={<Layout />}>
         <Route path="/" element={<Dashboard />} />
+        <Route path="/Properties" element={<Properties />} />
+        <Route path="/AirbnbRentals" element={<AirbnbRentals />} />
+        <Route path="/BicycleRentals" element={<BicycleRentals />} />
+        <Route path="/BicycleSales" element={<BicycleSales />} />
+        <Route path="/Maintenance" element={<Maintenance />} />
+        <Route path="/Inventory" element={<InventoryPage />} />
+        <Route path="/GuestExperiences" element={<GuestExperiences />} />
+        <Route path="/ActivityLogs" element={<ActivityLogs />} />
+        <Route path="/BusinessInsights" element={<BusinessInsights />} />
+        <Route path="/FinancialAnalysis" element={<FinancialAnalysis />} />
+        <Route path="/OperationsRentals" element={<OperationsRentals />} />
+        <Route path="/ConfigurationSystem" element={<ConfigurationSystem />} />
+        <Route path="/ChatOdoo" element={<ChatOdoo />} />
+        <Route path="/AdminAccess" element={<AdminAccess />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>

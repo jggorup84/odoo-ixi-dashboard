@@ -1,0 +1,39 @@
+{
+  "name": "OdooEvent",
+  "type": "object",
+  "properties": {
+    "event_id": {
+      "type": "string"
+    },
+    "event_type": {
+      "type": "string"
+    },
+    "occurred_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "record_model": {
+      "type": "string"
+    },
+    "record_id": {
+      "type": "integer"
+    },
+    "payload": {
+      "type": "object"
+    },
+    "processed": {
+      "type": "boolean",
+      "default": false
+    },
+    "processed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "error": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "event_type"
+  ]
+}

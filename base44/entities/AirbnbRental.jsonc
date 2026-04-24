@@ -1,0 +1,53 @@
+{
+  "name": "AirbnbRental",
+  "type": "object",
+  "properties": {
+    "odoo_id": {
+      "type": "integer"
+    },
+    "property_name": {
+      "type": "string"
+    },
+    "guest_name": {
+      "type": "string"
+    },
+    "check_in": {
+      "type": "string",
+      "format": "date"
+    },
+    "check_out": {
+      "type": "string",
+      "format": "date"
+    },
+    "total_amount": {
+      "type": "number"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "confirmed",
+        "in_progress",
+        "completed",
+        "cancelled"
+      ],
+      "default": "pending"
+    },
+    "platform": {
+      "type": "string",
+      "enum": [
+        "airbnb",
+        "booking",
+        "direct"
+      ],
+      "default": "airbnb"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "property_name",
+    "guest_name"
+  ]
+}

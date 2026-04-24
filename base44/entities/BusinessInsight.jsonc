@@ -1,0 +1,74 @@
+{
+  "name": "BusinessInsight",
+  "type": "object",
+  "properties": {
+    "insight_title": {
+      "type": "string"
+    },
+    "insight_type": {
+      "type": "string",
+      "enum": [
+        "opportunit\u00e9",
+        "risque",
+        "tendance",
+        "anomalie",
+        "recommandation"
+      ]
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "ventes",
+        "finances",
+        "op\u00e9rations",
+        "clients",
+        "produits",
+        "rentabilit\u00e9",
+        "efficacit\u00e9"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "impact_level": {
+      "type": "string",
+      "enum": [
+        "faible",
+        "moyen",
+        "\u00e9lev\u00e9",
+        "critique"
+      ]
+    },
+    "financial_impact": {
+      "type": "number"
+    },
+    "time_impact": {
+      "type": "number"
+    },
+    "action_required": {
+      "type": "boolean",
+      "default": false
+    },
+    "suggested_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "data_source": {
+      "type": "string"
+    },
+    "confidence_score": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "is_actioned": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "insight_title"
+  ]
+}

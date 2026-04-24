@@ -1,0 +1,58 @@
+{
+  "name": "SyncError",
+  "type": "object",
+  "properties": {
+    "sync_batch_id": {
+      "type": "string"
+    },
+    "entity_type": {
+      "type": "string"
+    },
+    "odoo_record_id": {
+      "type": "integer"
+    },
+    "error_message": {
+      "type": "string"
+    },
+    "error_stack": {
+      "type": "string"
+    },
+    "retry_count": {
+      "type": "integer",
+      "default": 0
+    },
+    "max_retries": {
+      "type": "integer",
+      "default": 3
+    },
+    "last_retry_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "next_retry_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending_retry",
+        "retrying",
+        "resolved",
+        "failed_permanently"
+      ],
+      "default": "pending_retry"
+    },
+    "resolved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "record_data": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "entity_type",
+    "error_message"
+  ]
+}

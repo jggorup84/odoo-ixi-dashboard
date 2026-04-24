@@ -1,0 +1,53 @@
+{
+  "name": "ActivityLog",
+  "type": "object",
+  "properties": {
+    "activity_type": {
+      "type": "string",
+      "enum": [
+        "agent_action",
+        "webhook_received",
+        "sync_started",
+        "sync_completed",
+        "sync_failed",
+        "user_action",
+        "system_event"
+      ]
+    },
+    "action_name": {
+      "type": "string"
+    },
+    "entity_type": {
+      "type": "string"
+    },
+    "entity_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "success",
+        "failed",
+        "cancelled"
+      ],
+      "default": "pending"
+    },
+    "details": {
+      "type": "object"
+    },
+    "error_message": {
+      "type": "string"
+    },
+    "duration_ms": {
+      "type": "integer"
+    },
+    "user_email": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "activity_type",
+    "action_name"
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "name": "ProcessAnalysis",
+  "type": "object",
+  "properties": {
+    "process_name": {
+      "type": "string"
+    },
+    "process_type": {
+      "type": "string",
+      "enum": [
+        "ventes",
+        "facturation",
+        "stock",
+        "achats",
+        "crm",
+        "projets",
+        "airbnb",
+        "v\u00e9los",
+        "g\u00e9n\u00e9ral"
+      ]
+    },
+    "analysis_period_start": {
+      "type": "string",
+      "format": "date"
+    },
+    "analysis_period_end": {
+      "type": "string",
+      "format": "date"
+    },
+    "metrics": {
+      "type": "object"
+    },
+    "bottlenecks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "inefficiencies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recommendations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "potential_savings": {
+      "type": "object"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "default": "medium"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "reviewed",
+        "in_progress",
+        "implemented",
+        "closed"
+      ],
+      "default": "draft"
+    },
+    "implementation_notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "process_name"
+  ]
+}

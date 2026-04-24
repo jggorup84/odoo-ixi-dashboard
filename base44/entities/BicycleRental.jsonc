@@ -1,0 +1,54 @@
+{
+  "name": "BicycleRental",
+  "type": "object",
+  "properties": {
+    "odoo_id": {
+      "type": "integer"
+    },
+    "bicycle_model": {
+      "type": "string"
+    },
+    "bicycle_id": {
+      "type": "string"
+    },
+    "customer_name": {
+      "type": "string"
+    },
+    "rental_start": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "rental_end": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "daily_rate": {
+      "type": "number"
+    },
+    "total_amount": {
+      "type": "number"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "reserved",
+        "active",
+        "returned",
+        "overdue",
+        "cancelled"
+      ],
+      "default": "reserved"
+    },
+    "deposit_paid": {
+      "type": "boolean",
+      "default": false
+    },
+    "condition_notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "bicycle_model",
+    "customer_name"
+  ]
+}
