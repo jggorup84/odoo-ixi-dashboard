@@ -1,0 +1,40 @@
+{
+  "name": "Auto-sync Task to Odoo on status change",
+  "description": "Synchronise automatiquement les t\u00e2ches critiques vers Odoo en tant que leads CRM lorsqu'elles sont cr\u00e9\u00e9es ou que le statut change \u00e0 '\u00c0 facturer' ou 'En cours'.",
+  "trigger": {
+    "condition": "${ ((.trigger.data.status == \"\\u00c0 facturer\" or .trigger.data.status == \"En cours\") and (.trigger.data.odoo_lead_id == null)) }",
+    "config": {
+      "trigger_type": "entity",
+      "events": [
+        "create",
+        "update"
+      ],
+      "entity_name": "Task"
+    }
+  },
+  "definition": {
+    "document": {
+      "dsl": "1.0.0",
+      "name": "auto_sync_task_to_odoo_on_status_change",
+      "version": "1.0",
+      "namespace": "base44"
+    },
+    "do": [
+      {
+        "run_function": {
+          "call": "invoke_backend_function",
+          "with": {
+            "function_name": "syncTaskToOdooLead",
+            "args": {
+              "mapping_id": "auto_detect"
+            }
+          },
+          "then": "end"
+        }
+      }
+    ]
+  },
+  "x-base44-migrated-from-automation": {
+    "legacy_payload_function": "syncTaskToOdooLead"
+  }
+}
